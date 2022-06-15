@@ -49,7 +49,6 @@ const generateCommentsArray = () => {
 };
 
 
-
 const arrId = [];
 const arrUrl = [];
 console.log(arrId);

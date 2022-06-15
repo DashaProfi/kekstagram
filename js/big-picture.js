@@ -1,5 +1,3 @@
-import {generateCommentsArray} from './data.js';
-
 const bigPictureSection = document.querySelector('.big-picture');
 const bigPictureImg = bigPictureSection.querySelector('.big-picture__img img');
 const bigPictureLikes = bigPictureSection.querySelector('.likes-count');

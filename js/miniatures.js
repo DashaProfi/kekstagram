@@ -15,18 +15,8 @@ const getMiniaturePictures = (photoDescriptionElement) => {
   likes.textContent = photoDescriptionElement.likes;
   comments.textContent = photoDescriptionElement.comments.length;
 
-  userPictureLink.addEventListener('click', (event) => getBigPicture(photoDescriptionElement));
+  userPictureLink.addEventListener('click', () => getBigPicture(photoDescriptionElement));
   pictureContainer.appendChild(userPictureLink);
 };
 
 photoDescriptionsArray.forEach(getMiniaturePictures);
-
-
-
-// const getBigPictureContaner = (event) => {
-//   console.log ('Contaner event.target', event.target);
-//   console.log ('Contanerevent.currentTarget', event.currentTarget);
-//   console.log('Contaner this', this);
-// }
-//
-// pictureContainer.addEventListener('click', getBigPictureContaner);
