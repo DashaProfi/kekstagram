@@ -1,6 +1,7 @@
 import {randomInteger} from './util.js';
 
-const MIN_NUMBER = 0;
+const MIN_NUMBER_ARRAY_ELEMENT = 0;
+const MIN_NUMBER_ID = 0;
 const MIN_NUMBER_AVATAR = 1;
 const MAX_NUMBER_AVATAR = 6;
 const MAX_NUMBER_ID_AVATAR = 1000000;
@@ -31,11 +32,11 @@ const NAMES = [
   'Вашингтон',
 ];
 
-const getRandomArrayElement = (elements) => (elements[randomInteger(MIN_NUMBER, elements.length - 1)]);
+const getRandomArrayElement = (elements) => (elements[randomInteger(MIN_NUMBER_ARRAY_ELEMENT, elements.length - 1)]);
 
 const createComment = () => (
   {
-    id: randomInteger(MIN_NUMBER, MAX_NUMBER_ID_AVATAR),
+    id: randomInteger(MIN_NUMBER_ID, MAX_NUMBER_ID_AVATAR),
     avatar: `img/avatar-${randomInteger(MIN_NUMBER_AVATAR, MAX_NUMBER_AVATAR)}.svg`,
     message: getRandomArrayElement(MESSAGES),
     name: getRandomArrayElement(NAMES),
@@ -51,7 +52,6 @@ const generateCommentsArray = () => {
 
 const arrId = [];
 const arrUrl = [];
-console.log(arrId);
 
 const createPhotoDescription = () => {
   let randomId = randomInteger(MIN_NUMBER_PHOTO_DESCRIPTIONS, MAX_NUMBER_PHOTO_DESCRIPTIONS);
@@ -75,7 +75,6 @@ const createPhotoDescription = () => {
   };
 };
 
-// console.log(createPhotoDescription());
 
 const photoDescriptionsArray = Array.from({length: MAX_NUMBER_PHOTO}, createPhotoDescription);
 

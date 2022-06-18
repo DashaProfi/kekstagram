@@ -21,7 +21,6 @@ const getComments = (comment) => {
   bigPictureCommentUl.appendChild(liComment);
 };
 
-// commentsArray.forEach(getComments);
 
 const getBigPicture = (photoDescriptionElement) => {
   bigPictureSection.classList.remove('hidden');
@@ -37,11 +36,8 @@ const getBigPicture = (photoDescriptionElement) => {
   bigPictureCommentsCount.textContent = photoDescriptionElement.comments.length;
   bigPictureCaption.textContent = photoDescriptionElement.description;
   photoDescriptionElement.comments.forEach(getComments);
-  // getComments(element)
 };
 
-
-console.log(bigPictureCancel);
 
 bigPictureCancel.addEventListener('click', () => {
   bigPictureSection.classList.add('hidden');
