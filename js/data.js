@@ -45,7 +45,7 @@ const createComment = () => (
 
 
 const generateCommentsArray = () => {
-  const commentsArray = Array.from({length: 5}, createComment);
+  const commentsArray = Array.from({length: randomInteger(1, 10)}, createComment);
   return commentsArray;
 };
 
@@ -78,6 +78,5 @@ const createPhotoDescription = () => {
 
 const photoDescriptionsArray = Array.from({length: MAX_NUMBER_PHOTO}, createPhotoDescription);
 
-console.log(photoDescriptionsArray);
 export {photoDescriptionsArray};
 export {generateCommentsArray};
