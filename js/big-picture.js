@@ -33,11 +33,12 @@ const getCurrentComments = (comments, commentStartSliceArg) => {
 
   let commentsEnd = comments.length - commentStartSliceArg - SLICE_ADD;
 
-  if (commentsEnd <= 5 && bigPictureCommentsLoaderCopy) {
+  if (comments.length <= 5 && bigPictureCommentsLoaderCopy) {
     bigPictureCommentsLoaderCopy.remove();
   }
-  if (commentsEnd < 0) {
+  if (commentsEnd <= 0) {
     commentsEnd = 0;
+    bigPictureCommentsLoaderCopy.remove();
   }
   const commentsShowed = comments.length - commentsEnd;
   bigPictureCurrentCommentsCount.textContent = `${commentsShowed}`;
@@ -52,7 +53,7 @@ const getBigPicture = (photoDescriptionElement) => {
   });
   bigPictureImg.src = photoDescriptionElement.url;
   bigPictureLikes.textContent = photoDescriptionElement.likes;
-  bigPictureCommentsCount.textContent = photoDescriptionElement.comments.length;
+  bigPictureCommentsCount.textContent = String(photoDescriptionElement.comments.length);
   bigPictureCaption.textContent = photoDescriptionElement.description;
 
   commentStartSlice = 0;
@@ -62,7 +63,7 @@ const getBigPicture = (photoDescriptionElement) => {
     bigPictureCommentsLoaderCopy = bigPictureCommentsLoader.cloneNode(true);
     bigPictureCommentsLoaderCopy.classList.remove('hidden');
     bigPictureCommentUl.insertAdjacentElement('afterend', bigPictureCommentsLoaderCopy);
-    bigPictureCommentsLoaderCopy.addEventListener('click', (evt) => {
+    bigPictureCommentsLoaderCopy.addEventListener('click', () => {
       commentStartSlice = commentStartSlice + SLICE_ADD;
       getCurrentComments(photoDescriptionElement.comments, commentStartSlice);
     });
